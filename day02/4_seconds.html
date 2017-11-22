@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<pre>
+  80 years.
+  user input: yyyy-mm-dd
+  xxxxxx seconds 还剩多少秒
+</pre>
+    <label>假设人的最大年龄为80岁</label>
+  <div id="seconds"></div>
+  <script>
+    const YEARS=80;
+    let birth=new Date(prompt("生日：","1990-1-15"));
+    let death=birth.setFullYear(birth.getFullYear()+YEARS);
+    function showTime() {
+      let today=new Date();
+      let seconds=Math.round((death-today)/1000);
+      document.getElementById('seconds').innerHTML=seconds;
+      setTimeout('showTime()',900);
+    }
+    showTime();
+  </script>
+</body>
+</html>
